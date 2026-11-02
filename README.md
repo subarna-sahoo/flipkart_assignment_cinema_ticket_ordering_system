@@ -29,6 +29,7 @@ service/
 utils/
   database.py            Singleton in-memory store (InMemoryDB)
   logging.py             Logger setup
+tests/                   unittest suite
 ```
 
 Services depend on `Repository`, not on the database directly, so the in-memory store could be replaced with a real database without touching any business logic.
@@ -55,4 +56,10 @@ print(StatsService(repo).per_cinema_stats())
 
 Requires Python 3.10+. There are no third-party dependencies.
 
-> **Known issue:** `models/__init__.py` uses absolute imports (`from cinema import Cinema`), so the package fails to import from the repo root. Change them to relative imports (`from .cinema import Cinema`, and so on) to make the example above work.
+## Tests
+
+```bash
+python -m unittest discover -s tests -t .
+```
+
+The tests cover cheapest-show selection, sold-out and missing shows, refunds before and after a show starts, and lifecycle rules.

@@ -3,7 +3,7 @@ import logging
 from models import Show
 from models import ShowStatus
 from models import InvalidOperation
-from repository import Repository
+from .repository import Repository
 
 logger = logging.getLogger(__name__)
 

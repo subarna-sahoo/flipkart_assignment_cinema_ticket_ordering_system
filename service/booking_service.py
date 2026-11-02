@@ -3,7 +3,7 @@ import logging
 from typing import Optional, Tuple
 from models import Booking
 from models import ShowStatus
-from repository import Repository
+from .repository import Repository
 
 logger = logging.getLogger(__name__)
 
